@@ -6,11 +6,11 @@
 /*   By: pchin <pchin@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 08:15:18 by pchin             #+#    #+#             */
-/*   Updated: 2022/09/06 08:29:29 by pchin            ###   ########.fr       */
+/*   Updated: 2022/09/06 18:21:29 by pchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "libft.h"
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {
