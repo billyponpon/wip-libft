@@ -6,9 +6,13 @@
 #    By: pchin <pchin@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 08:15:36 by pchin             #+#    #+#              #
-#    Updated: 2022/09/06 08:15:40 by pchin            ###   ########.fr        #
+#    Updated: 2022/09/07 10:57:19 by pchin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# $@ contain target name which is $(NAME)
+# $? Outputs all prerequisites newer than the target $(OBJS)
+# $^ Outputs all prerequisites
 
 NAME	= libft.a
 INCLUDE	= libft.h
@@ -38,10 +42,6 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS)
 			$(AR) $(ARFLAGS) $@ $?
-
-# $@ contain target name which is $(NAME)
-# $? Outputs all prerequisites newer than the target $(OBJS)
-# $^ Outputs all prerequisites
 
 bonus:		$(OBJS) $(B_OBJS)
 			$(AR) $(ARFLAGS) $(NAME) $?

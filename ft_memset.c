@@ -6,28 +6,34 @@
 /*   By: pchin <pchin@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 18:47:59 by pchin             #+#    #+#             */
-/*   Updated: 2022/09/06 19:24:16 by pchin            ###   ########.fr       */
+/*   Updated: 2022/09/08 18:58:19 by pchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
-{
-	size_t	i;
+/*
+!! why memset prototype is *, while bzero without?
 
-	i = 0;
-	while (i < n)
-	{
-		*(unsigned char *)s = c;
-		++i;
-		++s;
-	}
-	return (s);
-}
+The memset() function fills the first n bytes of the memory area
+pointed to by s with the constant byte c.
+The memset() function returns a pointer to the memory area s.
+
+https://www.tutorialspoint.com/c_standard_library/c_function_memset.htm
+memset() is used to fill a block of memory with a particular value.
+s is a void pointer, so that we can pass any type of pointer to this function.
+This is a pointer to the block of memory to fill.
+
+c − This is the value to be set. The value is passed as an int, 
+but the function fills the block of memory 
+using the unsigned char conversion of this value.
+
+n − This is the number of bytes to be set to the value.
 
 #include <stdio.h>
 #include <string.h>
+
+void	*ft_memset(void *s, int c, size_t n);
 
 int main () {
    char str[50];
@@ -42,4 +48,19 @@ int main () {
    puts(str);
    
    return(0);
+}
+*/
+
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		*(unsigned char *)s = c;
+		++i;
+		++s;
+	}
+	return (s);
 }
