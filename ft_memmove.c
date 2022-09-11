@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pchin <pchin@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: pchin <pchin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 18:14:47 by pchin             #+#    #+#             */
-/*   Updated: 2022/09/09 08:24:59 by pchin            ###   ########.fr       */
+/*   Updated: 2022/09/11 12:01:08 by pchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 int	main(void)
 {
-	char str[] = "foo-bar"; 
+	char str[20] = "foo-bar"; 
 	//seg fault if write as char *str; str = "foo-bar";
 	printf("before ft_memmove: %s\n", str);
-	ft_memmove(&str[3],&str[4],4);
+	ft_memmove(&str[3],&str[0],8);
 	printf("after ft_memmove: %s\n", str);
 
 	// printf("before memmove: %s\n", str);

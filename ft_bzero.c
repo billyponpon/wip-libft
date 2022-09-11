@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pchin <pchin@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: pchin <pchin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 10:40:49 by pchin             #+#    #+#             */
-/*   Updated: 2022/09/08 18:00:02 by pchin            ###   ########.fr       */
+/*   Updated: 2022/09/11 15:02:37 by pchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 // starting at the location pointed to by s, by writing zeros (bytes
 // containing '\0') to that area.
 // void	ft_bzero(void *s, size_t n)
+//
+// char '/0' int '0' pointer NULL
 // {
 // 	size_t	i;
 // 	i = 0;
@@ -31,5 +33,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(s, '\0', n);
+	ft_memset(s, 0, n);
 }
