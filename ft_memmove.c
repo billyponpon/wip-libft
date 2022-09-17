@@ -6,7 +6,7 @@
 /*   By: pchin <pchin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 18:14:47 by pchin             #+#    #+#             */
-/*   Updated: 2022/09/11 12:01:08 by pchin            ###   ########.fr       */
+/*   Updated: 2022/09/17 22:05:56 by pchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,52 @@ and the bytes are then copied from the temporary array to dest.
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	temp;
-
+	unsigned char	*dtemp;
 	if (dest == NULL && src == NULL)
-	{
 		return (NULL);
-	}
-	while (n != 0)
+	dtemp = dest;
+	if (src < dest)
 	{
-		temp = *(unsigned char *)src;
-		*(unsigned char *)dest = temp;
-		++src;
-		++dest;
-		--n;
+		while (n != 0)
+		{
+			*(unsigned char *)(dest + n - 1) = *(unsigned char *)(src + n - 1);
+			--src;
+			--dest;
+			--n;
+		}
 	}
-	return (dest);
+	else
+	{
+		while (n != 0)
+		{
+			*(unsigned char *)dest = *(unsigned char *)src;
+			++src;
+			++dest;
+			--n;
+		}
+	}
+	return (dtemp);
 }
+
+// void	*ft_memmove(void *dst, const void *src, size_t len)
+// {
+// 	void	*ret;
+
+// 	if (dst == NULL && src == NULL)
+// 		return (NULL);
+// 	ret = dst;
+// 	if (src < dst)
+// 	{
+// 		src += len;
+// 		dst += len;
+// 		while (len--)
+// 			*(char *)--dst = *(char *)--src;
+// 	}
+// 	else
+// 		while (len--)
+// 			*(char *)dst++ = *(char *)src++;
+// 	return (dst);
+// }
 
 // #include <stdio.h>
 // #include <string.h>
@@ -60,18 +90,18 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 //    return(0);
 // }
 
-#include <stdio.h>
-#include <string.h>
+// #include <stdio.h>
+// #include <string.h>
 
-int	main(void)
-{
-	char str[20] = "foo-bar"; 
-	//seg fault if write as char *str; str = "foo-bar";
-	printf("before ft_memmove: %s\n", str);
-	ft_memmove(&str[3],&str[0],8);
-	printf("after ft_memmove: %s\n", str);
+// int	main(void)
+// {
+// 	char str[20] = "foo-bar"; 
+// 	//seg fault if write as char *str; str = "foo-bar";
+// 	printf("before ft_memmove: %s\n", str);
+// 	ft_memmove(&str[3],&str[0],8);
+// 	printf("after ft_memmove: %s\n", str);
 
-	// printf("before memmove: %s\n", str);
-	// memmove(&str[3],&str[4],4);
-	// printf("after memmove: %s\n", str);
-}
+// 	// printf("before memmove: %s\n", str);
+// 	// memmove(&str[3],&str[4],4);
+// 	// printf("after memmove: %s\n", str);
+// }
